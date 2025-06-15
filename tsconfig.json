@@ -14,8 +14,14 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["vitest"]  // ✅ This is what fixes the test errors
+    "types": ["vite/client"],             // ✅ Vite client support
+    "allowImportingTsExtensions": false  // ✅ Disallow .ts/.tsx in import paths (for Vercel)
   },
   "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "exclude": ["node_modules", "dist", "src/**/*.test.ts"],  // ✅ Exclude test files from production build
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }
