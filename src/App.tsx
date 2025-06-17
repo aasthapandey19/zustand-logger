@@ -1,5 +1,6 @@
 import { useStore } from './store/useStore';
 import { useState } from 'react';
+import { Analytics } from '@vercel/analytics/react'; // ✅ Analytics import
 
 // ✅ Type for logs
 type LogEntry<T> = {
@@ -122,6 +123,8 @@ function App() {
           )}
         </div>
       )}
+
+      <Analytics /> {/* ✅ Inserted at bottom of the component */}
     </div>
   );
 }
